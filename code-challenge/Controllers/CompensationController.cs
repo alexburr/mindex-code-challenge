@@ -30,7 +30,7 @@ namespace challenge.Controllers
 
             _compensationService.Create(compensation);
             
-            return CreatedAtRoute("getByEmployeeId", new { employeeId = compensation.Employee }, compensation.Employee);
+            return CreatedAtRoute("getByEmployeeId", new { employeeId = compensation.Employee }, compensation);
         }
 
         [HttpGet("{employeeId}", Name = "getByEmployeeId")]
