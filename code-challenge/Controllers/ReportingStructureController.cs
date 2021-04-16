@@ -26,7 +26,7 @@ namespace challenge.Controllers
         {
             _logger.LogDebug($"Received reporting structure get request for '{employeeId}'");
 
-            var employee = _employeeService.GetById(employeeId);
+            var employee = _employeeService.GetByIdWithDirectReports(employeeId);
 
             if (employee == null)
                 return NotFound();

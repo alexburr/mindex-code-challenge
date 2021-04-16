@@ -50,10 +50,7 @@ namespace code_challenge.Tests.Integration
             var reportingStructure = response.DeserializeContent<ReportingStructure>();
             Assert.AreEqual(expectedFirstName, reportingStructure.Employee.FirstName);
             Assert.AreEqual(expectedLastName, reportingStructure.Employee.LastName);
-
-            // TODO This will need to be investigated and replaced with 
-            // Assert.AreEqual(expectedNumberOfReports, reportingStructure.NumberOfReports);
-            Assert.IsTrue((reportingStructure.NumberOfReports == expectedNumberOfReports) || (reportingStructure.NumberOfReports == 0));
+            Assert.AreEqual(expectedNumberOfReports, reportingStructure.NumberOfReports);
         }
 
         [TestMethod]
