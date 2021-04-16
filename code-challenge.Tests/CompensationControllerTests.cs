@@ -58,6 +58,7 @@ namespace code_challenge.Tests.Integration
 
             var newCompensation = response.DeserializeContent<Compensation>();
             Assert.IsNotNull(newCompensation.Employee);
+            Assert.IsNotNull(newCompensation.CompensationId);
             Assert.AreEqual(compensation.Employee, newCompensation.Employee);
             Assert.AreEqual(compensation.Salary, newCompensation.Salary);
             Assert.AreEqual(compensation.EffectiveDate, newCompensation.EffectiveDate);
@@ -86,6 +87,7 @@ namespace code_challenge.Tests.Integration
             // Assert
             Assert.AreEqual(HttpStatusCode.OK, getResponse.StatusCode);
             var compensationResponse = getResponse.DeserializeContent<Compensation>();
+            Assert.IsNotNull(compensationResponse.CompensationId);
             Assert.AreEqual(compensation.Employee, compensationResponse.Employee);
             Assert.AreEqual(compensation.Salary, compensationResponse.Salary);
             Assert.AreEqual(compensation.EffectiveDate, compensationResponse.EffectiveDate);
