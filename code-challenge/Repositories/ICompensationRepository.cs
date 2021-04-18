@@ -4,10 +4,8 @@ using System.Threading.Tasks;
 
 namespace challenge.Repositories
 {
-    public interface ICompensationRepository
+    public interface ICompensationRepository : IGenericRepository<Compensation>
     {
         Compensation GetByEmployeeId(String employeeId);
-        Compensation Add(Compensation compensation);
-        Task SaveAsync();
     }
 }
