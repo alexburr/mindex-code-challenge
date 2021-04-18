@@ -29,20 +29,12 @@ namespace challenge.Repositories
 
         public Employee GetById(string id)
         {
-            return _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
-        }
-
-        // Added this method to overcome an issue with GetByID(),
-        // DirectReports is always null unless inspected by the
-        // debugger.
-        // Addded a new method to avoid any backwards compatibility
-        // issues for the time being.
-        public Employee GetByIdWithDirectReports(String id)
-        {
+            // Original Linq query did not return Direct Reports
             return _employeeContext.Employees
-                .Include(e => e.DirectReports)
-                .ThenInclude(d => d.DirectReports)
-                .SingleOrDefault(emp => emp.EmployeeId == id);
+                 .Include(e => e.DirectReports)
+                 .ToList()
+                 .Where(emp => emp.EmployeeId == id)
+                 .SingleOrDefault();
         }
 
         public Task SaveAsync()

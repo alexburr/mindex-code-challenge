@@ -4,12 +4,9 @@ using System.Threading.Tasks;
 
 namespace challenge.Repositories
 {
-    public interface IEmployeeRepository
+    public interface IEmployeeRepository : IGenericRepository<Employee>
     {
         Employee GetById(String id);
-        Employee GetByIdWithDirectReports(String id);
-        Employee Add(Employee employee);
         Employee Remove(Employee employee);
-        Task SaveAsync();
     }
 }

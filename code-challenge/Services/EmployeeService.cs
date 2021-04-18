@@ -40,16 +40,6 @@ namespace challenge.Services
             return null;
         }
 
-        public Employee GetByIdWithDirectReports(string id)
-        {
-            if (!String.IsNullOrEmpty(id))
-            {
-                return _employeeRepository.GetByIdWithDirectReports(id);
-            }
-
-            return null;
-        }
-
         public Employee Replace(Employee originalEmployee, Employee newEmployee)
         {
             if(originalEmployee != null)

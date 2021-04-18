@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using challenge.Models;
+using challenge.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using challenge.Services;
-using challenge.Models;
+using System;
 
 namespace challenge.Controllers
 {
@@ -26,7 +23,7 @@ namespace challenge.Controllers
         {
             _logger.LogDebug($"Received reporting structure get request for '{employeeId}'");
 
-            var employee = _employeeService.GetByIdWithDirectReports(employeeId);
+            var employee = _employeeService.GetById(employeeId);
 
             if (employee == null)
                 return NotFound();
