@@ -40,21 +40,6 @@ namespace challenge.Services
             return null;
         }
 
-        // Added this method to overcome an issue with GetByID(),
-        // DirectReports in the repository is always null unless 
-        // inspected by the debugger.
-        // Addded a new method to avoid any backwards compatibility
-        // issues for the time being.
-        public Employee GetByIdWithDirectReports(string id)
-        {
-            if (!String.IsNullOrEmpty(id))
-            {
-                return _employeeRepository.GetByIdWithDirectReports(id);
-            }
-
-            return null;
-        }
-
         public Employee Replace(Employee originalEmployee, Employee newEmployee)
         {
             if(originalEmployee != null)
